@@ -1,0 +1,49 @@
+
+$i = 0;
+$n = 1;
+@mas_create:
+	$i = $i + 1;
+	$a[$i] = $n;
+	$n = $n - 1;
+	IF($n == 0) THEN
+		GOTO @end_creation;
+	ELSE
+		;
+	END IF
+GOTO @mas_create;
+@end_creation:
+;
+$i = 1;
+$j = 1;
+
+$n = 2;
+
+@for1:
+	IF($i > $n) THEN
+		GOTO @end1;
+	ELSE 
+		;
+	END IF
+	@for2:
+			IF($j > ($n - 1)) THEN
+				GOTO @end2;
+			ELSE 
+				;
+			END IF
+
+			
+			IF($a[$j] > $a[$j + 1]) THEN
+				$tmp = $a[$j];
+				$a[$j] = $a[$j + 1];
+				$a[$j + 1] = $tmp;
+			ELSE
+				;
+			END IF
+		$j = $j + 1;
+		GOTO @for2;
+		@end2:
+		$i = $i + 1;
+		$j = 1;
+		GOTO @for1;
+	@end1:
+		;
